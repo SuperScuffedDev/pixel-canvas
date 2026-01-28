@@ -7,11 +7,18 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1 id="title">Epic Etch-A-Sketch</h1>
+    <h1 id="title">Epic Pixel Canvas</h1>
     <div id="options">
         <div>
-            <h2 class="grid-size">Grid Size</h2>
-            <input class="grid-size" type="number">
+            <h2>Color</h2>
+            <input id="color" type="color" value="#ffffff">
+        </div>
+        <div>
+            <h2 class="grid-size">Grid Size (width)</h2>
+            <input class="grid-size" id="input" type="number" placeholder="default: 50">
+        </div>
+        <div>
+            <button id="set-size">Set Grid</button>
         </div>
     </div>
     <div id="grid-container"></div>
