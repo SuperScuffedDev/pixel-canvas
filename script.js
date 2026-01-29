@@ -2,18 +2,37 @@ const grid_container = document.querySelector("#grid-container");
 const grid_size_input = document.querySelector("#input")
 const color_picker = document.querySelector("#color");
 const set_grid = document.querySelector("#set-size")
+const rainbow_mode = document.querySelector("#rainbow-mode")
+
 
 let grid_size = 50
 let grid_block = undefined;
 let is_mousedown = false
 
+
+function rainbow_mode_random(e) {
+    const random_r = Math.floor(Math.random() * 256);
+    const random_g = Math.floor(Math.random() * 256);
+    const random_b = Math.floor(Math.random() * 256);
+
+    e.target.style.backgroundColor = `rgb(${random_r}, ${random_g}, ${random_b})`;  
+};
+
 function grid_hover(e) {
     if (e.type == "click") {
-        e.target.style.backgroundColor = color_picker.value;  
+        if (rainbow_mode.checked) {
+            rainbow_mode_random(e);
+        } else {
+            e.target.style.backgroundColor = color_picker.value;  
+        };
     } else {
         if (is_mousedown) {
+            if (rainbow_mode.checked) {
+                rainbow_mode_random(e);
+            } else {
                 e.target.style.backgroundColor = color_picker.value;  
-            }
+            };
+        }
     };
 };
 
